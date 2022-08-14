@@ -12,8 +12,13 @@ class BMI_CALCULATOR extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        primaryColor: Colors.red,
+        scaffoldBackgroundColor: Colors.orange,
+       colorSchemeSeed: Colors.purple,
+      ),
       home: inputPage(),
-    );
+    ); 
     
   }
 }
@@ -23,7 +28,7 @@ class inputPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold( 
       appBar: AppBar(
         title: Text('BMI CALCULATOR'),
       ),
