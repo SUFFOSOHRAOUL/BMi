@@ -17,12 +17,12 @@ class inputPage extends StatelessWidget {
                 children: [
                   Expanded(
             
-                  child: ReuseableCard(),
+                  child: ReuseableCard(colour: Color(0xff1d1e33)),
                   
               ),
               Expanded(
             
-                  child:  ReuseableCard(),
+                  child:  ReuseableCard(colour: Color(0xff1d1e33)),
               ),
                 ],
               ),
@@ -32,7 +32,7 @@ class inputPage extends StatelessWidget {
                 children: [
                   Expanded(
             
-                  child: ReuseableCard(),
+                  child: ReuseableCard(colour: Color(0xff1d1e33)),
                   
               ),
                 ]
@@ -44,13 +44,13 @@ class inputPage extends StatelessWidget {
                 children: [
                   Expanded(
             
-                  child: ReuseableCard(),
+                  child: ReuseableCard(colour: Color(0xff1d1e33)),
                   
               ),
               
                   Expanded(
             
-                  child:  ReuseableCard(),
+                  child:  ReuseableCard(colour: Color(0xff1d1e33),),
                   
               ),
                 ]
@@ -66,18 +66,16 @@ class inputPage extends StatelessWidget {
 }
 
 class ReuseableCard extends StatelessWidget {
-  const ReuseableCard({
-    Key? key,
-  }) : super(key: key);
-
+  ReuseableCard({required this.colour});
+     final   Color colour;
   @override
   Widget build(BuildContext context) {
     return Container(
                 
                  margin: EdgeInsets.all(10.0),
                  decoration:  BoxDecoration(
-    color: Color(0xff1d1e33),
-    borderRadius: BorderRadius.circular(10.0),
+                  color: colour,
+                  borderRadius: BorderRadius.circular(10.0),
                  ),
                 );
   }
