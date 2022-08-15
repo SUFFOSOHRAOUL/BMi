@@ -12,81 +12,49 @@ class inputPage extends StatelessWidget {
       body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Row(
-              children: [
-                Expanded(
-
-                child: Container(
-               height: 170,
-               margin: EdgeInsets.all(10.0),
-               decoration:  BoxDecoration(
-                color: Color(0xff1d1e33),
-                borderRadius: BorderRadius.circular(10.0),
-               ),
+            Expanded(
+              child: Row(
+                children: [
+                  Expanded(
+            
+                  child: ReuseableCard(),
+                  
               ),
-                
+              Expanded(
+            
+                  child:  ReuseableCard(),
+              ),
+                ],
+              ),
             ),
             Expanded(
-
-                child: Container(
-               height: 170,
-               
-               margin: EdgeInsets.all(10.0),
-               decoration:  BoxDecoration(
-                color: Color(0xff1d1e33),
-                borderRadius: BorderRadius.circular(10.0),
-               ),
+              child: Row(
+                children: [
+                  Expanded(
+            
+                  child: ReuseableCard(),
+                  
               ),
-                
-            )
-             
-              ],
-            ),
-            Row(
-              children: [
-                Expanded(
-
-                child: Container(
-               height: 170,
-               margin: EdgeInsets.all(10.0),
-               decoration:  BoxDecoration(
-                color: Color(0xff1d1e33),
-                borderRadius: BorderRadius.circular(10.0),
-               ),
+                ]
               ),
-                
-            ),
-              ]
             ),
           
-            Row(
-              children: [
-                Expanded(
-
-                child: Container(
-               height: 170,
-               margin: EdgeInsets.all(10.0),
-               decoration:  BoxDecoration(
-                color: Color(0xff1d1e33),
-                borderRadius: BorderRadius.circular(10.0),
-               ),
-              ),
-                
-            ),
+            Expanded(
+              child: Row(
+                children: [
+                  Expanded(
             
-                Expanded(
-
-                child: Container(
-               height: 170,
-               margin: EdgeInsets.all(10.0),
-               decoration:  BoxDecoration(
-                color: Color(0xff1d1e33),
-                borderRadius: BorderRadius.circular(10.0),
-               ),
+                  child: ReuseableCard(),
+                  
               ),
-                
-            ),
-              ]
+              
+                  Expanded(
+            
+                  child:  ReuseableCard(),
+                  
+              ),
+                ]
+              ),
             ),
           ],
         ),
@@ -94,5 +62,23 @@ class inputPage extends StatelessWidget {
         
     );
     
+  }
+}
+
+class ReuseableCard extends StatelessWidget {
+  const ReuseableCard({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+                
+                 margin: EdgeInsets.all(10.0),
+                 decoration:  BoxDecoration(
+    color: Color(0xff1d1e33),
+    borderRadius: BorderRadius.circular(10.0),
+                 ),
+                );
   }
 }
