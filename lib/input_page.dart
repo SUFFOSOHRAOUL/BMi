@@ -9,9 +9,89 @@ class inputPage extends StatelessWidget {
       appBar: AppBar(
         title: Center(child: Text('BMI CALCULATOR')),
       ),
-      body: Center(
-        child: Text(' body text'),
+      body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Row(
+              children: [
+                Expanded(
+
+                child: Container(
+               height: 170,
+               margin: EdgeInsets.all(10.0),
+               decoration:  BoxDecoration(
+                color: Color(0xff1d1e33),
+                borderRadius: BorderRadius.circular(10.0),
+               ),
+              ),
+                
+            ),
+            Expanded(
+
+                child: Container(
+               height: 170,
+               
+               margin: EdgeInsets.all(10.0),
+               decoration:  BoxDecoration(
+                color: Color(0xff1d1e33),
+                borderRadius: BorderRadius.circular(10.0),
+               ),
+              ),
+                
+            )
+             
+              ],
+            ),
+            Row(
+              children: [
+                Expanded(
+
+                child: Container(
+               height: 170,
+               margin: EdgeInsets.all(10.0),
+               decoration:  BoxDecoration(
+                color: Color(0xff1d1e33),
+                borderRadius: BorderRadius.circular(10.0),
+               ),
+              ),
+                
+            ),
+              ]
+            ),
+          
+            Row(
+              children: [
+                Expanded(
+
+                child: Container(
+               height: 170,
+               margin: EdgeInsets.all(10.0),
+               decoration:  BoxDecoration(
+                color: Color(0xff1d1e33),
+                borderRadius: BorderRadius.circular(10.0),
+               ),
+              ),
+                
+            ),
+            
+                Expanded(
+
+                child: Container(
+               height: 170,
+               margin: EdgeInsets.all(10.0),
+               decoration:  BoxDecoration(
+                color: Color(0xff1d1e33),
+                borderRadius: BorderRadius.circular(10.0),
+               ),
+              ),
+                
+            ),
+              ]
+            ),
+          ],
         ),
+    
+        
     );
     
   }
