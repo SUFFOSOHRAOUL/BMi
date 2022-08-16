@@ -1,7 +1,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'input_page.dart';
+import 'inputpage.dart';
 
 void main() {
   runApp(const BMI_CALCULATOR());
@@ -25,7 +25,7 @@ class BMI_CALCULATOR extends StatelessWidget {
       ),
       
       ),
-      home: inputPage(),
+      home: input_page(),
     ); 
     
   }

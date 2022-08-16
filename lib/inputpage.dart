@@ -1,18 +1,32 @@
+import 'package:flutter/src/foundation/key.dart';
+import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'reuseable_card.dart';
 import 'icon_content.dart';
 const   bottomContainerHeight = 80.0;
-const  cardcolor = Color(0xff1d1e33);
-const inactiveCardColor = Color(0xff111328);
+Color  cardcolor = Color(0xff1d1e33);
+Color inactiveCardColor = Color.fromARGB(255, 14, 16, 36);
 const bottomContainerColor = Color(0xffeb1555);
 
-class inputPage extends StatelessWidget {
+class input_page extends StatefulWidget {
+  
+
+
+
+  @override
+  State<input_page> createState() => _input_pageState();
+}
+
+class _input_pageState extends State<input_page> {
+  @override
+  
   Color maleCardColor = inactiveCardColor;
   Color femaleCardColor = inactiveCardColor;
 
   void updateCard(int gender){
-    if(gender == 2){
+    if(gender == 1){
       if(maleCardColor == inactiveCardColor){
         maleCardColor = cardcolor;
         femaleCardColor = inactiveCardColor;
@@ -30,10 +44,8 @@ class inputPage extends StatelessWidget {
       }
     }
   }
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold( 
+      return Scaffold( 
       appBar: AppBar(
         title: Center(child: Text('BMI CALCULATOR')),
       ),
@@ -44,30 +56,34 @@ class inputPage extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(
-            
-                  child: GestureDetector(
-                    onTap: (){
-                     setState(){
+            child:  GestureDetector(
+                  onTap: (){
+                     setState((){
                       updateCard(1);
-                     }
+                      
+                     });
                     },
-                    child: ReuseableCard(colour: cardcolor ,
+                    
+                    child: ReuseableCard(colour: maleCardColor ,
                     cardChild: topCardUI(icon: FontAwesomeIcons.mars, label: 'MALE'),
                                    
                      ),
-                  ),
+            )
                   
               ),
               Expanded(
             
                   child:  GestureDetector(
                     onTap: (){
-                     setState(){
+                     setState((){
                       updateCard(2);
-                     }
+                      
+                     });
                     },
-                  child: ReuseableCard(colour: cardcolor, 
-                  cardChild: topCardUI(icon: FontAwesomeIcons.venus, label: 'FEMALE'))),
+                  child: ReuseableCard(colour: femaleCardColor, 
+                  cardChild: topCardUI(icon: FontAwesomeIcons.venus, label: 'FEMALE')
+                  )
+                  ),
               ),
                 ],
               ),
@@ -119,3 +135,6 @@ class inputPage extends StatelessWidget {
   }
 }
 
+
+    
+  
