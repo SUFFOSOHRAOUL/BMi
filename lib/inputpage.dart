@@ -1,14 +1,11 @@
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
-
+import 'constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'reuseable_card.dart';
 import 'icon_content.dart';
-const   bottomContainerHeight = 80.0;
-Color  cardcolor = Color(0xff1d1e33);
-Color inactiveCardColor = Color.fromARGB(255, 14, 16, 36);
-const bottomContainerColor = Color(0xffeb1555);
+
 
 class input_page extends StatefulWidget {
   
@@ -32,6 +29,7 @@ class _input_pageState extends State<input_page> {
       ),
       body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Expanded(
               child: Row(
@@ -45,13 +43,13 @@ class _input_pageState extends State<input_page> {
               
              });
               } ,
-              colour: selectedGender == Gender.male ? cardcolor:inactiveCardColor,
+              colour: selectedGender == Gender.male ? kCardcolor:kInactiveCardColor,
             cardChild: topCardUI(icon: FontAwesomeIcons.mars, label: 'MALE'),
                            
              )
                   
               ),
-              Expanded(
+                  Expanded(
             
                   child:  ReuseableCard(
                     onPressed: (){
@@ -61,7 +59,7 @@ class _input_pageState extends State<input_page> {
                       
                      });
                     },
-                    colour: selectedGender == Gender.female ? cardcolor:inactiveCardColor, 
+                    colour: selectedGender == Gender.female ? kCardcolor:kInactiveCardColor, 
                   cardChild: topCardUI(icon: FontAwesomeIcons.venus, label: 'FEMALE')
                   ),
               ),
@@ -70,11 +68,31 @@ class _input_pageState extends State<input_page> {
             ),
             Expanded(
               child: Row(
+                
                 children: [
                   Expanded(
             
-                  child: ReuseableCard(colour: cardcolor , cardChild: Column()),
+                  child: ReuseableCard(colour: kCardcolor , cardChild: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                        Text('HEIGHT',
+                        style: kLabelTextStyle,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.baseline,
+                          textBaseline: TextBaseline.alphabetic,
+                          children: [
+                          Text('180',
+                          style: kWeightlabelStyle
+                          ),
+                          Text('cm',
+                          style: kLabelTextStyle,),
+                          ]
+                  ),
                   
+                ] 
+                  ),
+                  ),
               ),
                 ]
               ),
@@ -85,13 +103,15 @@ class _input_pageState extends State<input_page> {
                 children: [
                   Expanded(
             
-                  child: ReuseableCard(colour: cardcolor, cardChild: Column()),
-                  
-              ),
-              
+                  child: ReuseableCard(
+                    colour: kCardcolor, 
+                    cardChild: Column(),
+                      
+                    ),
+                  ),
                   Expanded(
             
-                  child:  ReuseableCard(colour: cardcolor, cardChild: Column()),
+                  child:  ReuseableCard(colour: kCardcolor, cardChild: Column()),
                   
               ),
                 ]
@@ -101,9 +121,9 @@ class _input_pageState extends State<input_page> {
             ),
             Container(
                   margin: EdgeInsets.only(top: 10),
-                  color: bottomContainerColor ,
+                  color: kBottomContainerColor ,
                   width: double.infinity,
-                  height: bottomContainerHeight,
+                  height: kBottomContainerHeight,
                 ),
           ],
           

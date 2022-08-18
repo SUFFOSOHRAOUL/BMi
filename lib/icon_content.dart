@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'constants.dart';
 class topCardUI extends StatelessWidget {
   topCardUI({required this.icon,required this.label});
   final IconData icon;
@@ -13,10 +14,7 @@ class topCardUI extends StatelessWidget {
           height: 15,
         ),
           Text(
-            label ,style: TextStyle(
-             color: Color(0xff8e8e98),
-              fontSize: 18.0, 
-            ),
+            label ,style: kLabelTextStyle,
           )
       ],
     );
