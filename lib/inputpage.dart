@@ -9,11 +9,9 @@ const   bottomContainerHeight = 80.0;
 Color  cardcolor = Color(0xff1d1e33);
 Color inactiveCardColor = Color.fromARGB(255, 14, 16, 36);
 const bottomContainerColor = Color(0xffeb1555);
-gender female = gender(GenderType.female);
-gender male = gender(GenderType.male);
+
 class input_page extends StatefulWidget {
   
-
 
 
   @override
@@ -21,30 +19,12 @@ class input_page extends StatefulWidget {
 }
 
 class _input_pageState extends State<input_page> {
-  @override
-  
-  Color maleCardColor = inactiveCardColor;
-  Color femaleCardColor = inactiveCardColor;
+@override
+  Gender? selectedGender;
+   
+  // Color maleCardColor = inactiveCardColor;
+  // Color femaleCardColor = inactiveCardColor;
 
-  void updateCard( gender sex){
-    if(sex == male){
-      if(maleCardColor == inactiveCardColor){
-        maleCardColor = cardcolor;
-        femaleCardColor = inactiveCardColor;
-      }else{
-        maleCardColor = inactiveCardColor;
-      }
-    }
-
-      if(sex == female){
-      if(femaleCardColor == inactiveCardColor){
-        femaleCardColor = cardcolor;
-        maleCardColor = inactiveCardColor;
-      }else{
-        femaleCardColor = inactiveCardColor;
-      }
-    }
-  }
   Widget build(BuildContext context) {
       return Scaffold( 
       appBar: AppBar(
@@ -57,33 +37,32 @@ class _input_pageState extends State<input_page> {
               child: Row(
                 children: [
                   Expanded(
-            child:  GestureDetector(
-                  onTap: (){
-                     setState((){
-                      updateCard(male);
-                      
-                     });
-                    },
-                    
-                    child: ReuseableCard(colour: maleCardColor ,
-                    cardChild: topCardUI(icon: FontAwesomeIcons.mars, label: 'MALE'),
-                                   
-                     ),
-            )
+            child:  ReuseableCard(
+              onPressed:(){
+                 setState((){
+             
+             selectedGender = Gender.male;
+              
+             });
+              } ,
+              colour: selectedGender == Gender.male ? cardcolor:inactiveCardColor,
+            cardChild: topCardUI(icon: FontAwesomeIcons.mars, label: 'MALE'),
+                           
+             )
                   
               ),
               Expanded(
             
-                  child:  GestureDetector(
-                    onTap: (){
-                     setState((){
-                      updateCard(female);
+                  child:  ReuseableCard(
+                    onPressed: (){
+                        setState((){
+                      // updateCard(Gender.female);
+                      selectedGender = Gender.female;
                       
                      });
                     },
-                  child: ReuseableCard(colour: femaleCardColor, 
+                    colour: selectedGender == Gender.female ? cardcolor:inactiveCardColor, 
                   cardChild: topCardUI(icon: FontAwesomeIcons.venus, label: 'FEMALE')
-                  )
                   ),
               ),
                 ],
@@ -137,12 +116,8 @@ class _input_pageState extends State<input_page> {
 }
 
 
-    
-  class gender{
-    GenderType sex;
-    gender(this.sex);
-  }
-  enum GenderType{
+  
+  enum Gender{
      male,
     female,
   }
