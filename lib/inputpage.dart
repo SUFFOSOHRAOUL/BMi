@@ -18,7 +18,7 @@ class input_page extends StatefulWidget {
 class _input_pageState extends State<input_page> {
 @override
   Gender? selectedGender;
-   
+  int HEIGHT = 180; 
   // Color maleCardColor = inactiveCardColor;
   // Color femaleCardColor = inactiveCardColor;
 
@@ -74,6 +74,7 @@ class _input_pageState extends State<input_page> {
             
                   child: ReuseableCard(colour: kCardcolor , cardChild: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                         Text('HEIGHT',
                         style: kLabelTextStyle,),
@@ -82,14 +83,30 @@ class _input_pageState extends State<input_page> {
                           crossAxisAlignment: CrossAxisAlignment.baseline,
                           textBaseline: TextBaseline.alphabetic,
                           children: [
-                          Text('180',
+                          Text(
+                            HEIGHT.toString(),
                           style: kWeightlabelStyle
                           ),
                           Text('cm',
                           style: kLabelTextStyle,),
                           ]
                   ),
-                  
+                  Slider(
+                    activeColor: Color(0xffeb1555),
+                    inactiveColor: Color(0xff8e8e98),
+                    value: HEIGHT.toDouble(),
+                    min: 120.0,
+                    max: 220.0,
+                   onChanged: (double newHeight){
+                  setState(() {
+                    HEIGHT = newHeight.round();
+                  });
+                     
+                     print(HEIGHT);
+
+                   }
+                   
+                   )
                 ] 
                   ),
                   ),
