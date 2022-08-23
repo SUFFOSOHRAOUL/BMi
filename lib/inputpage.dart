@@ -1,3 +1,4 @@
+import 'package:flutter/rendering.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'constants.dart';
@@ -19,6 +20,7 @@ class _input_pageState extends State<input_page> {
 @override
   Gender? selectedGender;
   int HEIGHT = 180; 
+  int weight = 60;
   // Color maleCardColor = inactiveCardColor;
   // Color femaleCardColor = inactiveCardColor;
 
@@ -91,22 +93,28 @@ class _input_pageState extends State<input_page> {
                           style: kLabelTextStyle,),
                           ]
                   ),
-                  Slider(
-                    activeColor: Color(0xffeb1555),
-                    inactiveColor: Color(0xff8e8e98),
-                    value: HEIGHT.toDouble(),
-                    min: 120.0,
-                    max: 220.0,
-                   onChanged: (double newHeight){
-                  setState(() {
-                    HEIGHT = newHeight.round();
-                  });
+                  SliderTheme(
+                    data: SliderTheme.of(context).copyWith(
+                      activeTrackColor: Color(0xfffffffff),
+                      inactiveTrackColor:  Color(0xff8e8e98),
+                      thumbColor: Color(0xffeb1555),
+                      overlayColor: Color(0x15eb1555),
+                      thumbShape: RoundSliderThumbShape(enabledThumbRadius: 15.0),
+                      overlayShape:RoundSliderOverlayShape(overlayRadius:30.0 ),
+                    ),
+                    child: Slider(
+                      value: HEIGHT.toDouble(),
+                      min: 120.0,
+                      max: 220.0,
+                     onChanged: (double newHeight){
+                    setState(() {
+                      HEIGHT = newHeight.round();
+                    });
+                    
+                     }
                      
-                     print(HEIGHT);
-
-                   }
-                   
-                   )
+                     ),
+                  )
                 ] 
                   ),
                   ),
@@ -122,13 +130,34 @@ class _input_pageState extends State<input_page> {
             
                   child: ReuseableCard(
                     colour: kCardcolor, 
-                    cardChild: Column(),
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('WEIGHT',
+                        style:kLabelTextStyle,
+                        ),
+                        Text(weight.toString(),
+                        style: kWeightlabelStyle,),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundIconButton(icon:FontAwesomeIcons.minus),
+                            SizedBox(width:10.0),
+                           RoundIconButton(icon:FontAwesomeIcons.plus),
+                           
+                          
+                          ],
+                        )
+                      ]
+                    ),
                       
                     ),
                   ),
                   Expanded(
             
-                  child:  ReuseableCard(colour: kCardcolor, cardChild: Column()),
+                  child:  ReuseableCard(
+                    colour: kCardcolor,
+                     cardChild: Column()),
                   
               ),
                 ]
@@ -159,3 +188,29 @@ class _input_pageState extends State<input_page> {
     female,
   }
   
+class RoundIconButton extends StatelessWidget {
+  RoundIconButton({this.icon});
+   
+    IconData? icon;
+
+  @override
+  Widget build(BuildContext context) {
+   
+    return RawMaterialButton(
+      onPressed: (){
+         
+      },
+      elevation: 6.0,
+       constraints: const BoxConstraints.tightFor(
+        width: 56.0,
+        height: 56.0,
+      ),
+      shape: const CircleBorder(),
+      fillColor: const Color(0xFF4C4F5E),
+      child: Icon(icon),
+
+
+      
+    );
+  }
+}
