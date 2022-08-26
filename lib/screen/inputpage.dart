@@ -1,14 +1,14 @@
 import 'package:flutter/rendering.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'constants.dart';
+import '../components/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'reuseable_card.dart';
-import 'icon_content.dart';
+import '../components/reuseable_card.dart';
+import '../icon_content.dart';
 import 'resultpage.dart';
-import 'buttombutton.dart';
-import 'roundiconbutton.dart';
+import '../components/buttombutton.dart';
+import '../components/roundiconbutton.dart';
 
 class input_page extends StatefulWidget {
   @override

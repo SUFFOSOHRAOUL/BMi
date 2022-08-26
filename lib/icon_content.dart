@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
-import 'constants.dart';
+import 'components/constants.dart';
+
 class topCardUI extends StatelessWidget {
-  topCardUI({required this.icon,required this.label});
+  topCardUI({required this.icon, required this.label});
   final IconData icon;
   final String label;
   @override
   Widget build(BuildContext context) {
-    return Column (
+    return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget> [
-          Icon(icon, size: 80),
+      children: <Widget>[
+        Icon(icon, size: 80),
         SizedBox(
           height: 15,
         ),
-          Text(
-            label ,style: kLabelTextStyle,
-          )
+        Text(
+          label,
+          style: kLabelTextStyle,
+        )
       ],
     );
   }
 }
-
